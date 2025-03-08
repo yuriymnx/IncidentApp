@@ -10,8 +10,9 @@ public static class ServiceRegistration
 {
     public static void AddCoreServices(this IServiceCollection services)
     {
-        services.AddSingleton<IDataProviderService, DataProviderService>();
         services.AddDbContext<AppDbContext>();
+
+        services.AddSingleton<IDataProviderService, DataProviderService>();
         services.AddScoped<ISurveyRepository, SurveyRepository>();
         services.AddScoped<ISurveyService, SurveyService>();
     }

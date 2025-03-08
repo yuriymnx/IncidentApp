@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace IncidentApp;
 
-public partial class App : Application
+public class App : Application
 {
     private ServiceProvider? _serviceProvider;
 
@@ -25,14 +25,13 @@ public partial class App : Application
         var services = new ServiceCollection();
 
         services.AddSingleton<MainWindow>();
-
-        // Создаем IConfiguration вручную
+        
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables()
             .Build();
-
-        // Регистрируем IConfiguration в контейнере
+        
         services.AddSingleton<IConfiguration>(configuration);
 
         services.AddViewServices();

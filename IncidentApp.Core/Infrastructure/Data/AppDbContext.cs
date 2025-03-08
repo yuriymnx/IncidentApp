@@ -12,10 +12,6 @@ public class AppDbContext : DbContext
     {
         _configuration = configuration;
     }
-    public AppDbContext()
-    {
-        _configuration = new ConfigurationBuilder().Build();
-    }
 
     public DbSet<Survey> Surveys { get; set; }
     public DbSet<SurveyQuestion> Questions { get; set; }
@@ -24,10 +20,6 @@ public class AppDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var connectionString = _configuration.GetConnectionString("PostgresConnection");
-        if (string.IsNullOrEmpty(connectionString))
-        {
-            connectionString = "Host=localhost;Port=5432;Database=incident_db;Username=postgres;Password=yourpassword";
-        }
         optionsBuilder.UseNpgsql(connectionString);
     }
 }
