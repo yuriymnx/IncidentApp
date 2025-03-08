@@ -1,4 +1,4 @@
-﻿namespace IncidentApp.Core.Services.Interfaces;
+﻿namespace IncidentApp.Core.Infrastructure.Services.Interfaces;
 
 public interface IDataProviderService
 {

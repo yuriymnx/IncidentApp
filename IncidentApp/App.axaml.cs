@@ -1,11 +1,13 @@
-using System.Linq;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using IncidentApp.Core.Services;
+using IncidentApp.Core.Infrastructure.Services;
 using IncidentApp.Views;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
+using System.Linq;
 
 namespace IncidentApp;
 
@@ -23,6 +25,15 @@ public partial class App : Application
         var services = new ServiceCollection();
 
         services.AddSingleton<MainWindow>();
+
+        // Создаем IConfiguration вручную
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+
+        // Регистрируем IConfiguration в контейнере
+        services.AddSingleton<IConfiguration>(configuration);
 
         services.AddViewServices();
         services.AddCoreServices();

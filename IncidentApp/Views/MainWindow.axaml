@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="IncidentApp.Views.MainWindow"
-        xmlns:controls="clr-namespace:IncidentApp.Views.Controls"
         x:DataType="vm:MainViewModel"
         Title="IncidentApp">
 
-	<controls:MainView/>
+    <!--Что то это не особо ладит с DI, делаем программно--> 
+	<!--<controls:MainView />-->
 
 </Window>

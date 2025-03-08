@@ -10,8 +10,4 @@ public partial class MainView : UserControl
         InitializeComponent();
         DataContext = mainViewModel;
     }
-
-    public MainView() : this(new MainViewModel())
-    {
-    }
 }

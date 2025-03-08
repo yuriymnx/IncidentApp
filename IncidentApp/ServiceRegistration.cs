@@ -1,4 +1,5 @@
 using IncidentApp.ViewModels;
+using IncidentApp.Views;
 using IncidentApp.Views.Controls;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +9,8 @@ public static class ServiceRegistration
 {
     public static void AddViewServices(this IServiceCollection services)
     {
-        services.AddSingleton<MainView>();
-        services.AddTransient<MainViewModel>();
+        services.AddSingleton<MainViewModel>();
+        services.AddTransient<MainView>();
+        services.AddTransient<MainWindow>();
     }
 }
