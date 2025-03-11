@@ -13,9 +13,9 @@ public class AppDbContext : DbContext
         _configuration = configuration;
     }
 
-    public DbSet<Survey> Surveys { get; set; }
-    public DbSet<SurveyQuestion> Questions { get; set; }
-    public DbSet<SurveyResponse> Responses { get; set; }
+    public DbSet<Survey>? Surveys { get; set; }
+    public DbSet<SurveyQuestion>? Questions { get; set; }
+    public DbSet<SurveyResponse>? Responses { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

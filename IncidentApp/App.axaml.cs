@@ -29,7 +29,6 @@ public class App : Application
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            .AddEnvironmentVariables()
             .Build();
         
         services.AddSingleton<IConfiguration>(configuration);
