@@ -7,12 +7,21 @@
              x:DataType="viewmodels:MainViewModel"
              x:Class="IncidentApp.Views.Controls.MainView">
 
-    <Design.DataContext>
-        <viewmodels:MainViewModel/>
-    </Design.DataContext>
+	<Design.DataContext>
+		<viewmodels:MainViewModel/>
+	</Design.DataContext>
 
-    <Grid>
-        <TextBlock Text="{Binding Text}"/>
-    </Grid>
-
+	<StackPanel>
+		<ListBox ItemsSource="{Binding Surveys}" SelectedItem="{Binding SelectedSurvey}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Title}"/>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Button Command="{Binding LoadSurveysCommand}" Content="Load Surveys"/>
+		<Button Command="{Binding CreateSurveyCommand}" Content="Create Survey"/>
+		<Button Command="{Binding EditSurveyCommand}" Content="Edit Survey" IsEnabled="{Binding SelectedSurvey}"/>
+		<Button Command="{Binding DeleteSurveyCommand}" Content="Delete Survey" IsEnabled="{Binding SelectedSurvey}"/>
+	</StackPanel>
 </UserControl>
