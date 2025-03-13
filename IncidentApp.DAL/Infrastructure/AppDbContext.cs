@@ -1,8 +1,9 @@
 ﻿using IncidentApp.Core.Domain.Entities;
+using IncidentApp.DAL.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace IncidentApp.Core.Infrastructure.Data;
+namespace IncidentApp.DAL.Infrastructure;
 
 public class AppDbContext : DbContext
 {

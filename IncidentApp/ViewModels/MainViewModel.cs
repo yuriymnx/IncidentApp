@@ -1,11 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using IncidentApp.Core.Domain.Entities;
-using IncidentApp.Core.Domain.Services.Interfaces;
+using IncidentApp.Core.Domain.Interfaces;
 using IncidentApp.ViewModels.Base;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
+using IncidentApp.Core.Domain.Enums;
 
 namespace IncidentApp.ViewModels;
 
@@ -14,31 +16,36 @@ public partial class MainViewModel : ViewModelBase
     private readonly ISurveyService _surveyService;
 
     [ObservableProperty]
-    private ObservableCollection<Survey> _surveys = new();
+    private ObservableCollection<SurveyDto> _surveys = new();
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(DeleteSurveyCommand))]
     [NotifyCanExecuteChangedFor(nameof(EditSurveyCommand))]
-    private Survey? _selectedSurvey;
+    private SurveyDto? _selectedSurvey;
 
     public MainViewModel(ISurveyService surveyService)
     {
         _surveyService = surveyService;
     }
 
+    public MainViewModel()
+    {
+        _surveyService = new DummySurveyService();
+    }
+
     [RelayCommand]
     private async Task LoadSurveysAsync()
     {
         var surveys = await _surveyService.GetAllSurveysAsync();
-        Surveys = new ObservableCollection<Survey>(surveys);
+        Surveys = new ObservableCollection<SurveyDto>(surveys);
     }
 
     [RelayCommand]
     private async Task CreateSurveyAsync()
     {
-        var newSurvey = new Survey { Title = "Новый опрос" };
+        var newSurvey = new SurveyDto { Id = Guid.NewGuid(), Title = "Новый опрос" };
         var surveyId = await _surveyService.CreateSurveyAsync(newSurvey);
-        Surveys.Add(new Survey { Id = surveyId, Title = newSurvey.Title });
+        Surveys.Add(new SurveyDto { Id = surveyId, Title = newSurvey.Title });
     }
 
     [RelayCommand(CanExecute = nameof(CanDeleteSurveyExecute))]
@@ -66,4 +73,51 @@ public partial class MainViewModel : ViewModelBase
     }
 
     private bool CanEditSurveyExecute => SelectedSurvey != null;
+}
+
+public class DummySurveyService : ISurveyService
+{
+    public Task<Guid> CreateSurveyAsync(SurveyDto surveyDto)
+    {
+        return Task.FromResult(new Guid());
+    }
+
+    public Task<List<SurveyDto>> GetAllSurveysAsync()
+    {
+        var survey = new SurveyDto()
+        {
+            Id = new Guid(),
+            Title = "TEXT",
+        };
+        survey.Questions = new List<SurveyQuestionDto>()
+        {
+            new()
+            {
+                Id = Guid.NewGuid(),
+                QuestionText = "QUESTION_TEXT_1",
+                Type = QuestionType.Number,
+                OptionsJson = "OPTIONS_JSON_1",
+                Survey = survey
+            },
+            new()
+            {
+                Id = Guid.NewGuid(),
+                QuestionText = "QUESTION_TEXT_2",
+                Type = QuestionType.Number,
+                OptionsJson = "OPTIONS_JSON_2",
+                Survey = survey
+            }
+        };
+        return Task.FromResult(new List<SurveyDto> { survey });
+    }
+
+    public Task<bool> DeleteSurveyAsync(Guid id)
+    {
+        return Task.FromResult(true);
+    }
+
+    public Task<bool> UpdateSurveyAsync(SurveyDto selectedSurvey)
+    {
+        return Task.FromResult(true);
+    }
 }

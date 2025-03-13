@@ -1,4 +1,4 @@
-﻿namespace IncidentApp.Core.Domain.Services.Interfaces;
+﻿namespace IncidentApp.Core.Domain.Interfaces;
 
 public interface IValidationService
 {

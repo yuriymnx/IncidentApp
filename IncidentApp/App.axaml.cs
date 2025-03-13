@@ -1,19 +1,21 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using IncidentApp.Core.Infrastructure.Services;
 using IncidentApp.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Linq;
+using IncidentApp.DAL;
+using IncidentApp.Core;
 
 namespace IncidentApp;
 
 public class App : Application
 {
-    private ServiceProvider? _serviceProvider;
+    public static ServiceProvider ServiceProvider { get; private set; } = new ServiceCollection().BuildServiceProvider();
 
     public override void Initialize()
     {
@@ -35,14 +37,15 @@ public class App : Application
 
         services.AddViewServices();
         services.AddCoreServices();
+        services.AddDalServices();
 
-        _serviceProvider = services.BuildServiceProvider();
+        ServiceProvider = services.BuildServiceProvider();
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             DisableAvaloniaDataAnnotationValidation();
             
-            desktop.MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+            desktop.MainWindow = ServiceProvider.GetRequiredService<MainWindow>();
         }
 
         base.OnFrameworkInitializationCompleted();
