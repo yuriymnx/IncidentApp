@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Linq;
-using IncidentApp.Core;
 using IncidentApp.Domain;
 using IncidentApp.Infrastructure;
 
@@ -37,8 +36,8 @@ public class App : Application
         services.AddSingleton<IConfiguration>(configuration);
 
         services.AddViewServices();
-        services.AddCoreServices();
-        services.AddDalServices();
+        //services.AddCoreServices();
+        //services.AddDalServices();
 
         ServiceProvider = services.BuildServiceProvider();
 
