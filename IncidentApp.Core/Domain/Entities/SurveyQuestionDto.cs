@@ -1,7 +1,8 @@
 ﻿// ReSharper disable PropertyCanBeMadeInitOnly.Global
-using IncidentApp.Core.Domain.Enums;
 
-namespace IncidentApp.Core.Domain.Entities;
+using IncidentApp.Infrastructure.Domain.Enums;
+
+namespace IncidentApp.Infrastructure.Domain.Entities;
 
 public class SurveyQuestionDto
 {

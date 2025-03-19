@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace IncidentApp.Core;
+namespace IncidentApp.Infrastructure;
 
 public static class ServiceRegistration
 {

@@ -8,8 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 using System.Linq;
-using IncidentApp.DAL;
 using IncidentApp.Core;
+using IncidentApp.Domain;
+using IncidentApp.Infrastructure;
 
 namespace IncidentApp;
 

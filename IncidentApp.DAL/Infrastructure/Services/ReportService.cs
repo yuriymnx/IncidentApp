@@ -1,8 +1,6 @@
-﻿using IncidentApp.Core.Domain.Entities;
-using IncidentApp.Core.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace IncidentApp.DAL.Infrastructure.Services;
+namespace IncidentApp.Domain.Infrastructure.Services;
 
 public class ReportService : IReportService
 {

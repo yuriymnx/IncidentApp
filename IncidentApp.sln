@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentApp", "IncidentApp\IncidentApp.csproj", "{215D3F84-5649-409E-A6C8-8AEB07B7482C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentApp.Core", "IncidentApp.Core\IncidentApp.Core.csproj", "{CD3DDB71-D2C0-4E11-8841-A7C778072E60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentApp.Infrastructure", "IncidentApp.Core\IncidentApp.Infrastructure.csproj", "{CD3DDB71-D2C0-4E11-8841-A7C778072E60}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentApp.DAL", "IncidentApp.DAL\IncidentApp.DAL.csproj", "{F6C74FAD-CDB5-4E98-AAFD-E5836A4721C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncidentApp.Domain", "IncidentApp.DAL\IncidentApp.Domain.csproj", "{F6C74FAD-CDB5-4E98-AAFD-E5836A4721C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

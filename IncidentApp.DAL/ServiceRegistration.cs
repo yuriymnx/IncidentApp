@@ -1,9 +1,8 @@
-﻿using IncidentApp.Core.Domain.Interfaces;
-using IncidentApp.DAL.Infrastructure;
-using IncidentApp.DAL.Infrastructure.Services;
+﻿using IncidentApp.Domain.Infrastructure;
+using IncidentApp.Domain.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IncidentApp.DAL;
+namespace IncidentApp.Domain;
 
 public static class ServiceRegistration
 {

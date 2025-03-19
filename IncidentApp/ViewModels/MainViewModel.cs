@@ -1,13 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using IncidentApp.Core.Domain.Entities;
-using IncidentApp.Core.Domain.Interfaces;
 using IncidentApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using IncidentApp.Core.Domain.Enums;
+using IncidentApp.Infrastructure.Domain.Entities;
+using IncidentApp.Infrastructure.Domain.Enums;
+using IncidentApp.Infrastructure.Domain.Interfaces;
 
 namespace IncidentApp.ViewModels;
 

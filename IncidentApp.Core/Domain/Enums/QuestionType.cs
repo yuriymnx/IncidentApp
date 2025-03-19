@@ -1,4 +1,4 @@
-﻿namespace IncidentApp.Core.Domain.Enums;
+﻿namespace IncidentApp.Infrastructure.Domain.Enums;
 
 public enum QuestionType
 {

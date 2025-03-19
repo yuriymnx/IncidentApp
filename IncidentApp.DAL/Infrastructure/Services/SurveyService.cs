@@ -1,10 +1,7 @@
-﻿using IncidentApp.Core.Domain.Entities;
-using IncidentApp.Core.Domain.Interfaces;
-using IncidentApp.DAL.Extensions;
-using IncidentApp.DAL.Infrastructure.Entities;
+﻿using IncidentApp.Domain.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace IncidentApp.DAL.Infrastructure.Services;
+namespace IncidentApp.Domain.Infrastructure.Services;
 
 public class SurveyService : ISurveyService
 {

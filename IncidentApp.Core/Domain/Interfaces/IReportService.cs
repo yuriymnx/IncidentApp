@@ -1,6 +1,6 @@
-﻿using IncidentApp.Core.Domain.Entities;
+﻿using IncidentApp.Infrastructure.Domain.Entities;
 
-namespace IncidentApp.Core.Domain.Interfaces;
+namespace IncidentApp.Infrastructure.Domain.Interfaces;
 
 public interface IReportService
 {

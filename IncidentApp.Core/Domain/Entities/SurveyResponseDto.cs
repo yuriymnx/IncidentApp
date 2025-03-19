@@ -1,5 +1,5 @@
 ﻿// ReSharper disable PropertyCanBeMadeInitOnly.Global
-namespace IncidentApp.Core.Domain.Entities;
+namespace IncidentApp.Infrastructure.Domain.Entities;
 
 public class SurveyResponseDto
 {

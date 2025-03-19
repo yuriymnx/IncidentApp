@@ -1,6 +1,4 @@
-﻿using IncidentApp.Core.Domain.Interfaces;
-
-namespace IncidentApp.DAL.Infrastructure.Services;
+﻿namespace IncidentApp.Domain.Infrastructure.Services;
 
 
 public class ValidationService : IValidationService

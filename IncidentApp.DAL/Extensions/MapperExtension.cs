@@ -1,7 +1,6 @@
-﻿using IncidentApp.Core.Domain.Entities;
-using IncidentApp.DAL.Infrastructure.Entities;
+﻿using IncidentApp.Domain.Infrastructure.Entities;
 
-namespace IncidentApp.DAL.Extensions;
+namespace IncidentApp.Domain.Extensions;
 
 internal static class MapperExtension
 {
