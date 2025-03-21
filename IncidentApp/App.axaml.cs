@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using IncidentApp.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
@@ -25,8 +24,7 @@ public class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         var services = new ServiceCollection();
-
-        services.AddSingleton<MainWindow>();
+        
         
         var configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
@@ -35,7 +33,7 @@ public class App : Application
         
         services.AddSingleton<IConfiguration>(configuration);
 
-        services.AddViewServices();
+        //services.AddViewServices();
         //services.AddCoreServices();
         //services.AddDalServices();
 
@@ -45,7 +43,7 @@ public class App : Application
         {
             DisableAvaloniaDataAnnotationValidation();
             
-            desktop.MainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            //desktop.MainWindow = ServiceProvider.GetRequiredService<MainWindow>();
         }
 
         base.OnFrameworkInitializationCompleted();
