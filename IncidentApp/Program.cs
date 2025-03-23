@@ -1,18 +1,47 @@
-﻿using System;
-using Avalonia;
+﻿using Avalonia;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Events;
+using System;
 
 namespace IncidentApp;
 
 internal sealed class Program
 {
-    // Initialization code. Don't use any Avalonia, third-party APIs or any
-    // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-    // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)
+    {
+        try
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
 
-    // Avalonia configuration, don't remove; also used by visual designer.
+            var host = CreateHostBuilder(args).Build();
+
+            host.Start();
+
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception ex)
+        {
+            if (ex is not HostAbortedException)
+                Log.Fatal(ex, "Unhandled exception");
+            throw;
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) => Host
+        .CreateDefaultBuilder(args)
+        .UseSerilog();
+
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
