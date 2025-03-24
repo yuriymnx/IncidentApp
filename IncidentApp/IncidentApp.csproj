@@ -28,11 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IncidentApp.Core\IncidentApp.Infrastructure.csproj" />
-    <ProjectReference Include="..\IncidentApp.DAL\IncidentApp.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

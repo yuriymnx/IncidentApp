@@ -1,9 +1,9 @@
 ﻿using IncidentApp.Definitions.Base;
-using IncidentApp.Navigation.Modal;
+using IncidentApp.Shared.Navigation.Modal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace IncidentApp.Navigation;
+namespace IncidentApp.Shared.Navigation;
 
 public class NavigationDefinition : AppDefinition
 {

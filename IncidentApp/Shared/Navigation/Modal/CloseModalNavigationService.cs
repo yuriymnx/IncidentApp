@@ -1,4 +1,4 @@
-﻿namespace IncidentApp.Navigation.Modal;
+﻿namespace IncidentApp.Shared.Navigation.Modal;
 
 public class CloseModalNavigationService : INavigationService
 {

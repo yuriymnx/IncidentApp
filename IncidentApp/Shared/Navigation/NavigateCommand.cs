@@ -1,6 +1,6 @@
 ﻿using IncidentApp.Shared.Commands;
 
-namespace IncidentApp.Navigation;
+namespace IncidentApp.Shared.Navigation;
 
 public class NavigateCommand : CommandBase
 {

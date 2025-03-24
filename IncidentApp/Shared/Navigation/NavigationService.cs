@@ -1,6 +1,6 @@
 ﻿using IncidentApp.Shared.ViewModels;
 
-namespace IncidentApp.Navigation;
+namespace IncidentApp.Shared.Navigation;
 
 public class NavigationService<TViewModel> : INavigationService where TViewModel : ViewModelBase
 {

@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IncidentApp.DAL\IncidentApp.Domain.csproj" />
+    <ProjectReference Include="..\IncidentApp.Domain\IncidentApp.Domain.csproj" />
   </ItemGroup>
-
 </Project>

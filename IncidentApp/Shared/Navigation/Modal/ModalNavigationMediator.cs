@@ -1,7 +1,7 @@
 ﻿using System;
 using IncidentApp.Shared.ViewModels;
 
-namespace IncidentApp.Navigation.Modal;
+namespace IncidentApp.Shared.Navigation.Modal;
 
 public class ModalNavigationMediator : INavigationMediator
 {

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace IncidentApp.Navigation.Bar;
+namespace IncidentApp.Shared.Navigation.Bar;
 
 public class NavigationBarDefinition : AppDefinition
 {

@@ -1,6 +1,6 @@
 using System;
 
-namespace IncidentApp.Navigation.Modal;
+namespace IncidentApp.Shared.Navigation.Modal;
 
 public interface ICallbackNavigationService<out T>
 {

@@ -1,6 +1,6 @@
-﻿using IncidentApp.Navigation;
-using IncidentApp.Navigation.Bar;
-using IncidentApp.Navigation.Modal;
+﻿using IncidentApp.Shared.Navigation;
+using IncidentApp.Shared.Navigation.Bar;
+using IncidentApp.Shared.Navigation.Modal;
 
 namespace IncidentApp.Shared.ViewModels;
 

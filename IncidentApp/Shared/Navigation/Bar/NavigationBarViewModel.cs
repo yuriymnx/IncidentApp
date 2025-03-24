@@ -2,7 +2,7 @@
 using IncidentApp.Shared.ViewModels;
 using System.Windows.Input;
 
-namespace IncidentApp.Navigation.Bar;
+namespace IncidentApp.Shared.Navigation.Bar;
 
 public class NavigationBarViewModel : ViewModelBase
 {

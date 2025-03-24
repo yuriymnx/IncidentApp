@@ -1,4 +1,4 @@
-﻿namespace IncidentApp.Navigation;
+﻿namespace IncidentApp.Shared.Navigation;
 
 public interface INavigationService
 {

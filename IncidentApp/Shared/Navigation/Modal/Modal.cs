@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 
-namespace IncidentApp.Navigation.Modal;
+namespace IncidentApp.Shared.Navigation.Modal;
 
 public class Modal : ContentControl
 {
@@ -26,7 +26,7 @@ public class Modal : ContentControl
 
     private void OnIsOpenChanged(AvaloniaPropertyChangedEventArgs e)
     {
-        // TODO: Логика при изменении IsOpen (например, анимации)
+        // TODO: Р›РѕРіРёРєР° РїСЂРё РёР·РјРµРЅРµРЅРёРё IsOpen (РЅР°РїСЂРёРјРµСЂ, Р°РЅРёРјР°С†РёРё)
     }
 
     private static IBrush CreateDefaultBackground()

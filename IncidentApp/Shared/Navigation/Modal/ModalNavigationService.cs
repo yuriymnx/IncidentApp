@@ -1,6 +1,6 @@
 ﻿using IncidentApp.Shared.ViewModels;
 
-namespace IncidentApp.Navigation.Modal;
+namespace IncidentApp.Shared.Navigation.Modal;
 
 public class ModalNavigationService<TViewModel> : INavigationService where TViewModel : ViewModelBase
 {

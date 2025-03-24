@@ -1,7 +1,7 @@
 ﻿using System;
 using IncidentApp.Shared.ViewModels;
 
-namespace IncidentApp.Navigation;
+namespace IncidentApp.Shared.Navigation;
 
 public class NavigationMediator : INavigationMediator
 {
