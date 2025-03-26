@@ -73,7 +73,7 @@ public class App : Application
             })
             .ConfigureServices((context, services) =>
             {
-                services.AddSingleton<IConfiguration>(context.Configuration);
+                services.AddSingleton(context.Configuration);
                 services.AddSingleton<MainWindow>();
             });
 }

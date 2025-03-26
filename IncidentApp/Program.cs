@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using IncidentApp.Definitions.Base;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -40,7 +41,8 @@ internal sealed class Program
 
     public static IHostBuilder CreateHostBuilder(string[] args) => Host
         .CreateDefaultBuilder(args)
-        .UseSerilog();
+        .UseSerilog()
+        .AddDefinitions(typeof(Program));
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()

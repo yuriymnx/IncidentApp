@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:IncidentApp.Shared.ViewModels"
         xmlns:home="clr-namespace:IncidentApp.Pages.Home"
+        xmlns:bar1="clr-namespace:IncidentApp.Shared.Navigation.Bar"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="IncidentApp.MainWindow"
         x:CompileBindings="True"
@@ -17,5 +18,25 @@
                 </DataTemplate>
             </ResourceDictionary>
         </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0"
+                    Background="{DynamicResource MaterialDesignToolBarBackground}">
+            <bar1:NavigationBarView DataContext="{Binding NavigationBarViewModel}" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="1">
+            <Grid>
+                <ContentControl Padding="50"
+                                IsEnabled="{Binding IsOpen, Mode=OneWay}"
+                                Content="{Binding CurrentModalViewModel}" />
+
+                <ContentControl Content="{Binding CurrentViewModel}" />
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
