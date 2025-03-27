@@ -1,6 +1,8 @@
-﻿namespace IncidentApp.Shared.Navigation;
+﻿using IncidentApp.Shared.ViewModels;
+
+namespace IncidentApp.Shared.Navigation;
 
 public interface INavigationService
 {
-    void Navigate();
+    void Navigate(ViewModelBase viewModel);
 }

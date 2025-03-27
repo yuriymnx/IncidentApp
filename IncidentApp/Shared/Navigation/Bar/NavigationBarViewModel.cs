@@ -1,33 +1,34 @@
-﻿using IncidentApp.Shared.Commands;
+﻿using IncidentApp.Pages.Home;
+using IncidentApp.Shared.Commands;
 using IncidentApp.Shared.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows.Input;
-using Serilog;
 
 namespace IncidentApp.Shared.Navigation.Bar;
 
 public class NavigationBarViewModel : ViewModelBase
 {
     private ICommand? _backCommand;
+    private ICommand? _homeCommand;
 
-    public NavigationBarViewModel(INavigationService homeNavigationService, INavigationService closeNavigationService)
+    private readonly INavigationService _navigationService;
+
+    public NavigationBarViewModel(INavigationService navigationService)
     {
-        CloseModalCommand = new NavigateCommand(closeNavigationService);
-        NavigateHomeCommand = new NavigateCommand(homeNavigationService);
+        _navigationService = navigationService;
     }
+    
+    public ICommand NavigateHomeCommand => _homeCommand ??= new LambdaCommand(() =>
+    {
+        var home = App.Services.GetRequiredService<HomeViewModel>();
+        _navigationService.Navigate(home);
+    });
 
     public ICommand BackCommand => _backCommand ??= new LambdaCommand(() =>
     {
-        if (MainViewModel?.CurrentModalViewModel is null)
-        {
-            NavigateHomeCommand.Execute(null);
-            return;
-        }
-
-        CloseModalCommand.Execute(null);
+        // pu pu puuu
     });
 
-    private ICommand CloseModalCommand { get; }
-    public ICommand NavigateHomeCommand { get; }
     public MainViewModel? MainViewModel { get; set; }
 
     public bool IsEnabledHomeButton => true;

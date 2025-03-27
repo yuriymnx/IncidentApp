@@ -2,20 +2,17 @@
 
 namespace IncidentApp.Shared.Navigation;
 
-public class NavigationService<TViewModel> : INavigationService where TViewModel : ViewModelBase
+public class NavigationService : INavigationService
 {
-    private readonly CreateViewModel<TViewModel> _createViewModel;
+    private readonly NavigationMediator _navigationMediator;
 
-    private readonly INavigationMediator _navigationMediator;
-
-    public NavigationService(INavigationMediator navigationMediator, CreateViewModel<TViewModel> createViewModel)
+    public NavigationService(NavigationMediator navigationMediator)
     {
-        _createViewModel = createViewModel;
-        _navigationMediator = navigationMediator;  
+        _navigationMediator = navigationMediator;
     }
 
-    public void Navigate()
+    public void Navigate(ViewModelBase viewModel)
     {
-        _navigationMediator.CurrentViewModel = _createViewModel();
+        _navigationMediator.CurrentViewModel = viewModel;
     }
 }

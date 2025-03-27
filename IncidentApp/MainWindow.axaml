@@ -31,9 +31,6 @@
 
         <ScrollViewer Grid.Column="1">
             <Grid>
-                <ContentControl Padding="50"
-                                IsEnabled="{Binding IsOpen, Mode=OneWay}"
-                                Content="{Binding CurrentModalViewModel}" />
 
                 <ContentControl Content="{Binding CurrentViewModel}" />
             </Grid>
