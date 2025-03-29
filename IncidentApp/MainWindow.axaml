@@ -31,7 +31,6 @@
 
         <ScrollViewer Grid.Column="1">
             <Grid>
-
                 <ContentControl Content="{Binding CurrentViewModel}" />
             </Grid>
         </ScrollViewer>
