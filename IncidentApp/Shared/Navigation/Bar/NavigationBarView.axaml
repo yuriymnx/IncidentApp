@@ -4,14 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:bar="clr-namespace:IncidentApp.Shared.Navigation.Bar"
              x:Class="IncidentApp.Shared.Navigation.Bar.NavigationBarView"
+             x:DataType="bar:NavigationBarViewModel"
              d:DesignHeight="450"
              d:DesignWidth="800"
-             mc:Ignorable="d" 
-             x:CompileBindings="True"
-             x:DataType="bar:NavigationBarViewModel">
+             mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical">
-        <Button Command="{Binding  BackCommand}"
+        <Button Command="{Binding BackCommand}"
                 Content="Back"
                 Width="40"
                 Height="30" />
